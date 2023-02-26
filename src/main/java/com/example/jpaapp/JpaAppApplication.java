@@ -24,5 +24,9 @@ public class JpaAppApplication implements CommandLineRunner {
         System.out.println("malade : "+nb);
 
         System.out.println("malade :"+patientRepository.chercherPatient(true).size());
+
+        for(int i=0;i<10;i++){
+            patientRepository.save(new Patient(null,"taffah",new Date(14,25,2019),(i%2==0 ? true : false),i*11));
+        }
     }
 }
