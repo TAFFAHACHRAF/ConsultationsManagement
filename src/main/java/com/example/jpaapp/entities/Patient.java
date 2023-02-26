@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -17,5 +18,6 @@ public class Patient {
     @Temporal(TemporalType.DATE)
     private Date dataNaissance;
     private boolean malade;
-    private int score;
+    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)
+    private Collection<RendezVous> rendezVous;
 }
